@@ -59,11 +59,13 @@ margin-bottom:25px;
 .btn{
 background:#00ffd5;
 color:black;
-padding:12px 28px;
+padding:14px 28px;
 border-radius:30px;
 text-decoration:none;
 font-weight:600;
 transition:0.3s;
+border:none;
+cursor:pointer;
 }
 
 .btn:hover{
@@ -120,9 +122,42 @@ text-align:center;
 margin-top:40px;
 }
 
-footer a{
-color:#00ffd5;
-text-decoration:none;
+/* ===== FORM STYLING ===== */
+
+.form-container{
+max-width:600px;
+margin:0 auto;
+background:rgba(255,255,255,0.08);
+padding:40px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+text-align:left;
+}
+
+form{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+form label{
+font-weight:500;
+margin-bottom:5px;
+}
+
+form input,
+form select{
+padding:14px;
+border-radius:10px;
+border:none;
+outline:none;
+font-size:15px;
+width:100%;
+}
+
+form input:focus,
+form select:focus{
+box-shadow:0 0 0 2px #00ffd5;
 }
 </style>
 </head>
@@ -192,19 +227,80 @@ text-decoration:none;
 </section>
 
 <section class="section" id="contact">
-<h2>Contact Us</h2>
-<p>For business inquiries and service details:</p>
-<br>
-<h3>Email:</h3>
-<p><a href="mailto:aithestud07@gmail.com">aithestud07@gmail.com</a></p>
-<p><a href="mailto:anbuselvansr2307@gmail.com">anbuselvansr2307@gmail.com</a></p>
+<h2 style="margin-bottom:30px;">Send Your Requirement</h2>
+
+<div class="form-container">
+<form id="requirementForm">
+
+<label>Name</label>
+<input type="text" id="name" required>
+
+<label>Company</label>
+<input type="text" id="company" required>
+
+<label>Email</label>
+<input type="email" id="email" required>
+
+<label>Mobile</label>
+<input type="text" id="mobile" required>
+
+<label>City</label>
+<input type="text" id="city" required>
+
+<label>Type of Document</label>
+<select id="typeOfDocument" required>
+<option value="">Select Type</option>
+<option>Agreement</option>
+<option>Resume</option>
+<option>Business Proposal</option>
+<option>Legal Document</option>
+<option>Other</option>
+</select>
+
+<button type="submit" class="btn" style="margin-top:10px;">Submit Requirement</button>
+
+</form>
+</div>
 </section>
 
 <footer>
 <p>© 2026 AITheStud. All Rights Reserved.</p>
 </footer>
 
+<script>
+document.getElementById("requirementForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const formData = {
+        name: document.getElementById("name").value,
+        company: document.getElementById("company").value,
+        email: document.getElementById("email").value,
+        mobile: document.getElementById("mobile").value,
+        city: document.getElementById("city").value,
+        typeOfDocument: document.getElementById("typeOfDocument").value
+    };
+
+    try {
+        const response = await fetch("http://localhost:5000/submit-form", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData)
+        });
+
+        const data = await response.json();
+
+        if(response.ok){
+            alert("Requirement submitted successfully!");
+            document.getElementById("requirementForm").reset();
+        } else {
+            alert(data.message);
+        }
+
+    } catch (error) {
+        alert("Error submitting form");
+    }
+});
+</script>
+
 </body>
-
 </html>
-
