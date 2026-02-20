@@ -3,207 +3,221 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AITheStud - Smart Text Correction</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<title>Aithestud</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-body{
-background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
-color:white;
+body {
+  background: #1e3c43;
+  color: white;
 }
 
-header{
-padding:20px 50px;
-display:flex;
-justify-content:space-between;
-align-items:center;
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 10%;
+  background: #173238;
 }
 
-.logo{
-font-size:24px;
-font-weight:700;
-color:#00ffd5;
+nav h1 {
+  color: #00e0b8;
 }
 
-nav a{
-color:white;
-text-decoration:none;
-margin-left:25px;
-font-weight:500;
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
 }
 
-.hero{
-text-align:center;
-padding:80px 20px;
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #1e3c43, #2f545c);
 }
 
-.hero h1{
-font-size:42px;
-margin-bottom:15px;
+.hero h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
 }
 
-.hero p{
-font-size:18px;
-opacity:0.9;
-margin-bottom:25px;
+.hero p {
+  max-width: 600px;
+  margin: auto;
+  opacity: 0.9;
 }
 
-.btn{
-background:#00ffd5;
-color:black;
-padding:12px 28px;
-border-radius:30px;
-text-decoration:none;
-font-weight:600;
-transition:0.3s;
+/* ABOUT */
+.section {
+  padding: 70px 10%;
+  text-align: center;
 }
 
-.btn:hover{
-background:white;
+.section h2 {
+  margin-bottom: 30px;
+  color: #00e0b8;
 }
 
-.section{
-padding:60px 30px;
-text-align:center;
+/* REVIEWS */
+.reviews {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.features{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:25px;
-margin-top:30px;
+.review-box {
+  background: #2f545c;
+  padding: 20px;
+  border-radius: 15px;
+  width: 250px;
 }
 
-.card{
-background:rgba(255,255,255,0.08);
-padding:25px;
-border-radius:15px;
-width:260px;
-backdrop-filter:blur(8px);
-transition:0.3s;
+/* FORM */
+.form-section {
+  padding: 70px 10%;
+  display: flex;
+  justify-content: center;
 }
 
-.card:hover{
-transform:translateY(-8px);
-background:rgba(255,255,255,0.15);
+.form-container {
+  background: #355c63;
+  padding: 40px;
+  width: 420px;
+  border-radius: 20px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.4);
 }
 
-.testimonials{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:25px;
-margin-top:30px;
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.testimonial{
-background:white;
-color:black;
-padding:20px;
-border-radius:12px;
-width:260px;
+.form-group {
+  margin-bottom: 15px;
 }
 
-footer{
-background:#000;
-padding:30px;
-text-align:center;
-margin-top:40px;
+label {
+  font-size: 14px;
+  display: block;
+  margin-bottom: 6px;
 }
 
-footer a{
-color:#00ffd5;
-text-decoration:none;
+input, select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 30px;
+  border: none;
+  background: #00e0b8;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background: #00c8a2;
+}
+
+/* FOOTER */
+footer {
+  background: #173238;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
 }
 </style>
 </head>
+
 <body>
 
-<header>
-<div class="logo">AITheStud</div>
 <nav>
-<a href="#">Home</a>
-<a href="#features">Services</a>
-<a href="#reviews">Reviews</a>
-<a href="#contact">Contact</a>
+  <h1><strong>AI The Stud</strong></h1>
+  <div>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Reviews</a>
+    <a href="#">Contact</a>
+  </div>
 </nav>
-</header>
 
 <section class="hero">
-<h1>Smart AI Text Correction Service</h1>
-<p>Fix grammar mistakes, correct capital letters, and make your writing professional instantly.</p>
-<a href="#contact" class="btn">Get Started</a>
+  <h2>Professional Document Services</h2>
+  <p>We help students and professionals create high quality documents including resumes, reports, and legal papers.</p>
 </section>
 
-<section class="section" id="features">
-<h2>Our Services</h2>
-
-<div class="features">
-<div class="card">
-<h3>Grammar Correction</h3>
-<p>Automatically fixes grammar errors in any paragraph.</p>
-</div>
-
-<div class="card">
-<h3>Case & Formatting</h3>
-<p>Corrects uppercase & lowercase mistakes and improves sentence structure.</p>
-</div>
-
-<div class="card">
-<h3>Professional Writing</h3>
-<p>Makes content suitable for business, agreements & official use.</p>
-</div>
-
-<div class="card">
-<h3>IT Company Agreements</h3>
-<p>Trusted service aligned with professional IT documentation standards.</p>
-</div>
-</div>
+<section class="section">
+  <h2>About Us</h2>
+  <p>We provide expert document creation services tailored to your needs with professional formatting and fast delivery.</p>
 </section>
 
-<section class="section" id="reviews">
-<h2>What Our Clients Say</h2>
-
-<div class="testimonials">
-<div class="testimonial">
-<p>"This service made our company documents look professional instantly."</p>
-<strong>- Ravi Kumar</strong>
-</div>
-
-<div class="testimonial">
-<p>"Very useful for agreements and official communication."</p>
-<strong>- Priya S</strong>
-</div>
-
-<div class="testimonial">
-<p>"Fast, accurate and saved us hours of editing work."</p>
-<strong>- Mahesh IT Solutions</strong>
-</div>
-</div>
+<section class="section">
+  <h2>Client Reviews</h2>
+  <div class="reviews">
+    <div class="review-box">
+      ⭐⭐⭐⭐⭐<br><br>
+      "Excellent service and fast delivery!"
+    </div>
+    <div class="review-box">
+      ⭐⭐⭐⭐⭐<br><br>
+      "My resume looked amazing!"
+    </div>
+    <div class="review-box">
+      ⭐⭐⭐⭐⭐<br><br>
+      "Very professional and affordable."
+    </div>
+  </div>
 </section>
 
-<section class="section" id="contact">
-<h2>Contact Us</h2>
-<p>For business inquiries and service details:</p>
-<br>
-<h3>Email:</h3>
-<p><a href="mailto:aithestud07@gmail.com">aithestud07@gmail.com</a></p>
-<p><a href="mailto:anbuselvansr2307@gmail.com">anbuselvansr2307@gmail.com</a></p>
+<section class="form-section">
+  <div class="form-container">
+    <h2>Submit Requirement</h2>
+
+    <form name="contact" method="POST" data-netlify="true" action="/thank-you.html">
+      <input type="hidden" name="form-name" value="contact">
+
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label>Type of Document</label>
+        <select name="document" required>
+          <option value="">Select Type</option>
+          <option value="Resume">Resume</option>
+          <option value="Report">Report</option>
+          <option value="Legal">Legal</option>
+        </select>
+      </div>
+
+      <button type="submit">Submit Requirement</button>
+    </form>
+  </div>
 </section>
 
 <footer>
-<p>© 2026 AITheStud. All Rights Reserved.</p>
+  © 2026 Aithestud | All Rights Reserved
 </footer>
 
 </body>
-
 </html>
