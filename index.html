@@ -1,271 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AITheStud - Smart Text Correction</title>
+  <meta charset="UTF-8">
+  <title>Contact Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1f3c42, #2f4f57);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
+    .form-container {
+      background: #2f4f57;
+      padding: 40px;
+      border-radius: 20px;
+      width: 400px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
 
-body{
-background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
-color:white;
-}
+    .form-container h2 {
+      color: white;
+      margin-bottom: 25px;
+      text-align: center;
+    }
 
-header{
-padding:20px 50px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
+    .input-group {
+      margin-bottom: 15px;
+    }
 
-.logo{
-font-size:24px;
-font-weight:700;
-color:#00ffd5;
-}
+    .input-group label {
+      display: block;
+      color: #ddd;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
 
-nav a{
-color:white;
-text-decoration:none;
-margin-left:25px;
-font-weight:500;
-}
+    .input-group input,
+    .input-group select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+    }
 
-.hero{
-text-align:center;
-padding:80px 20px;
-}
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      background: #00e0b8;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.3s;
+    }
 
-.hero h1{
-font-size:42px;
-margin-bottom:15px;
-}
-
-.hero p{
-font-size:18px;
-opacity:0.9;
-margin-bottom:25px;
-}
-
-.btn{
-background:#00ffd5;
-color:black;
-padding:14px 30px;
-border-radius:30px;
-text-decoration:none;
-font-weight:600;
-transition:0.3s;
-border:none;
-cursor:pointer;
-}
-
-.btn:hover{
-background:white;
-}
-
-.section{
-padding:60px 30px;
-text-align:center;
-}
-
-.features{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:25px;
-margin-top:30px;
-}
-
-.card{
-background:rgba(255,255,255,0.08);
-padding:25px;
-border-radius:15px;
-width:260px;
-backdrop-filter:blur(8px);
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-8px);
-background:rgba(255,255,255,0.15);
-}
-
-.testimonials{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:25px;
-margin-top:30px;
-}
-
-.testimonial{
-background:white;
-color:black;
-padding:20px;
-border-radius:12px;
-width:260px;
-}
-
-.form-box{
-max-width:600px;
-margin:0 auto;
-background:rgba(255,255,255,0.08);
-padding:40px;
-border-radius:20px;
-backdrop-filter:blur(10px);
-}
-
-form{
-display:flex;
-flex-direction:column;
-gap:18px;
-}
-
-form label{
-text-align:left;
-font-weight:500;
-}
-
-form input,
-form select{
-padding:14px;
-border-radius:10px;
-border:none;
-outline:none;
-font-size:15px;
-width:100%;
-}
-
-form input:focus,
-form select:focus{
-box-shadow:0 0 0 2px #00ffd5;
-}
-
-footer{
-background:#000;
-padding:30px;
-text-align:center;
-margin-top:40px;
-}
-
-footer a{
-color:#00ffd5;
-text-decoration:none;
-}
-</style>
+    .submit-btn:hover {
+      background: #00c9a7;
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-<div class="logo">AITheStud</div>
-<nav>
-<a href="#">Home</a>
-<a href="#features">Services</a>
-<a href="#reviews">Reviews</a>
-<a href="#contact">Contact</a>
-</nav>
-</header>
+  <div class="form-container">
+    <h2>Submit Requirement</h2>
 
-<section class="hero">
-<h1>Smart AI Text Correction Service</h1>
-<p>Fix grammar mistakes, correct capital letters, and make your writing professional instantly.</p>
-<a href="#contact" class="btn">Get Started</a>
-</section>
+    <!-- NETLIFY FORM START -->
+    <form name="contact" method="POST" data-netlify="true">
+      
+      <!-- Important hidden input -->
+      <input type="hidden" name="form-name" value="contact" />
 
-<section class="section" id="features">
-<h2>Our Services</h2>
-<div class="features">
-<div class="card">
-<h3>Grammar Correction</h3>
-<p>Automatically fixes grammar errors in any paragraph.</p>
-</div>
-<div class="card">
-<h3>Case & Formatting</h3>
-<p>Corrects uppercase & lowercase mistakes and improves sentence structure.</p>
-</div>
-<div class="card">
-<h3>Professional Writing</h3>
-<p>Makes content suitable for business & official use.</p>
-</div>
-<div class="card">
-<h3>IT Agreements</h3>
-<p>Professional IT documentation standards.</p>
-</div>
-</div>
-</section>
+      <div class="input-group">
+        <label>Name</label>
+        <input type="text" name="name" required>
+      </div>
 
-<section class="section" id="reviews">
-<h2>What Our Clients Say</h2>
-<div class="testimonials">
-<div class="testimonial">
-<p>"This service made our company documents look professional instantly."</p>
-<strong>- Ravi Kumar</strong>
-</div>
-<div class="testimonial">
-<p>"Very useful for agreements and official communication."</p>
-<strong>- Priya S</strong>
-</div>
-<div class="testimonial">
-<p>"Fast, accurate and saved us hours."</p>
-<strong>- Mahesh IT Solutions</strong>
-</div>
-</div>
-</section>
+      <div class="input-group">
+        <label>Company</label>
+        <input type="text" name="company">
+      </div>
 
-<section class="section" id="contact">
-<h2 style="margin-bottom:30px;">Send Your Requirement</h2>
+      <div class="input-group">
+        <label>Email</label>
+        <input type="email" name="email" required>
+      </div>
 
-<div class="form-box">
+      <div class="input-group">
+        <label>Mobile</label>
+        <input type="text" name="mobile">
+      </div>
 
-<form name="requirementForm" method="POST" data-netlify="true">
+      <div class="input-group">
+        <label>City</label>
+        <input type="text" name="city">
+      </div>
 
-<input type="hidden" name="form-name" value="requirementForm">
+      <div class="input-group">
+        <label>Type of Document</label>
+        <select name="document" required>
+          <option value="">Select Type</option>
+          <option value="Resume">Resume</option>
+          <option value="Report">Report</option>
+          <option value="Legal">Legal</option>
+        </select>
+      </div>
 
-<label>Name</label>
-<input type="text" name="name" required>
+      <button type="submit" class="submit-btn">
+        Submit Requirement
+      </button>
 
-<label>Company</label>
-<input type="text" name="company" required>
+    </form>
+    <!-- NETLIFY FORM END -->
 
-<label>Email</label>
-<input type="email" name="email" required>
-
-<label>Mobile</label>
-<input type="text" name="mobile" required>
-
-<label>City</label>
-<input type="text" name="city" required>
-
-<label>Type of Document</label>
-<select name="typeOfDocument" required>
-<option value="">Select Type</option>
-<option>Agreement</option>
-<option>Resume</option>
-<option>Business Proposal</option>
-<option>Legal Document</option>
-<option>Other</option>
-</select>
-
-<button type="submit" class="btn">Submit Requirement</button>
-
-</form>
-
-</div>
-</section>
-
-<footer>
-<p>© 2026 AITheStud. All Rights Reserved.</p>
-</footer>
+  </div>
 
 </body>
 </html>
