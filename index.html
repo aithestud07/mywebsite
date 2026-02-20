@@ -59,7 +59,7 @@ margin-bottom:25px;
 .btn{
 background:#00ffd5;
 color:black;
-padding:14px 28px;
+padding:14px 30px;
 border-radius:30px;
 text-decoration:none;
 font-weight:600;
@@ -115,34 +115,24 @@ border-radius:12px;
 width:260px;
 }
 
-footer{
-background:#000;
-padding:30px;
-text-align:center;
-margin-top:40px;
-}
-
-/* ===== FORM STYLING ===== */
-
-.form-container{
+.form-box{
 max-width:600px;
 margin:0 auto;
 background:rgba(255,255,255,0.08);
 padding:40px;
 border-radius:20px;
 backdrop-filter:blur(10px);
-text-align:left;
 }
 
 form{
 display:flex;
 flex-direction:column;
-gap:20px;
+gap:18px;
 }
 
 form label{
+text-align:left;
 font-weight:500;
-margin-bottom:5px;
 }
 
 form input,
@@ -159,8 +149,21 @@ form input:focus,
 form select:focus{
 box-shadow:0 0 0 2px #00ffd5;
 }
+
+footer{
+background:#000;
+padding:30px;
+text-align:center;
+margin-top:40px;
+}
+
+footer a{
+color:#00ffd5;
+text-decoration:none;
+}
 </style>
 </head>
+
 <body>
 
 <header>
@@ -181,46 +184,39 @@ box-shadow:0 0 0 2px #00ffd5;
 
 <section class="section" id="features">
 <h2>Our Services</h2>
-
 <div class="features">
 <div class="card">
 <h3>Grammar Correction</h3>
 <p>Automatically fixes grammar errors in any paragraph.</p>
 </div>
-
 <div class="card">
 <h3>Case & Formatting</h3>
 <p>Corrects uppercase & lowercase mistakes and improves sentence structure.</p>
 </div>
-
 <div class="card">
 <h3>Professional Writing</h3>
-<p>Makes content suitable for business, agreements & official use.</p>
+<p>Makes content suitable for business & official use.</p>
 </div>
-
 <div class="card">
-<h3>IT Company Agreements</h3>
-<p>Trusted service aligned with professional IT documentation standards.</p>
+<h3>IT Agreements</h3>
+<p>Professional IT documentation standards.</p>
 </div>
 </div>
 </section>
 
 <section class="section" id="reviews">
 <h2>What Our Clients Say</h2>
-
 <div class="testimonials">
 <div class="testimonial">
 <p>"This service made our company documents look professional instantly."</p>
 <strong>- Ravi Kumar</strong>
 </div>
-
 <div class="testimonial">
 <p>"Very useful for agreements and official communication."</p>
 <strong>- Priya S</strong>
 </div>
-
 <div class="testimonial">
-<p>"Fast, accurate and saved us hours of editing work."</p>
+<p>"Fast, accurate and saved us hours."</p>
 <strong>- Mahesh IT Solutions</strong>
 </div>
 </div>
@@ -229,26 +225,29 @@ box-shadow:0 0 0 2px #00ffd5;
 <section class="section" id="contact">
 <h2 style="margin-bottom:30px;">Send Your Requirement</h2>
 
-<div class="form-container">
-<form id="requirementForm">
+<div class="form-box">
+
+<form name="requirementForm" method="POST" data-netlify="true">
+
+<input type="hidden" name="form-name" value="requirementForm">
 
 <label>Name</label>
-<input type="text" id="name" required>
+<input type="text" name="name" required>
 
 <label>Company</label>
-<input type="text" id="company" required>
+<input type="text" name="company" required>
 
 <label>Email</label>
-<input type="email" id="email" required>
+<input type="email" name="email" required>
 
 <label>Mobile</label>
-<input type="text" id="mobile" required>
+<input type="text" name="mobile" required>
 
 <label>City</label>
-<input type="text" id="city" required>
+<input type="text" name="city" required>
 
 <label>Type of Document</label>
-<select id="typeOfDocument" required>
+<select name="typeOfDocument" required>
 <option value="">Select Type</option>
 <option>Agreement</option>
 <option>Resume</option>
@@ -257,50 +256,16 @@ box-shadow:0 0 0 2px #00ffd5;
 <option>Other</option>
 </select>
 
-<button type="submit" class="btn" style="margin-top:10px;">Submit Requirement</button>
+<button type="submit" class="btn">Submit Requirement</button>
 
 </form>
+
 </div>
 </section>
 
 <footer>
 <p>© 2026 AITheStud. All Rights Reserved.</p>
 </footer>
-
-<script>
-document.getElementById("requirementForm").addEventListener("submit", async function(e) {
-    e.preventDefault();
-
-    const formData = {
-        name: document.getElementById("name").value,
-        company: document.getElementById("company").value,
-        email: document.getElementById("email").value,
-        mobile: document.getElementById("mobile").value,
-        city: document.getElementById("city").value,
-        typeOfDocument: document.getElementById("typeOfDocument").value
-    };
-
-    try {
-        const response = await fetch("http://localhost:5000/submit-form", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(formData)
-        });
-
-        const data = await response.json();
-
-        if(response.ok){
-            alert("Requirement submitted successfully!");
-            document.getElementById("requirementForm").reset();
-        } else {
-            alert(data.message);
-        }
-
-    } catch (error) {
-        alert("Error submitting form");
-    }
-});
-</script>
 
 </body>
 </html>
