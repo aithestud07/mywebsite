@@ -3,309 +3,327 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AITheStud - Professional Document Services</title>
+<title>AITheStud | Premium AI Automation</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
 
 body{
-background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
+font-family:'Poppins',sans-serif;
+background:#0f172a;
 color:white;
-scroll-behavior:smooth;
+overflow-x:hidden;
 }
 
-header{
-padding:20px 50px;
+#particles-js{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-1;
+}
+
+nav{
+position:fixed;
+width:100%;
+padding:20px 10%;
 display:flex;
 justify-content:space-between;
 align-items:center;
+backdrop-filter:blur(10px);
+background:rgba(15,23,42,0.6);
+z-index:1000;
 }
 
-.logo{
-font-size:24px;
-font-weight:700;
-color:#00ffd5;
+nav h2{
+font-family:'Orbitron',sans-serif;
+background:linear-gradient(90deg,#38bdf8,#6366f1);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
-nav a{
-color:white;
-text-decoration:none;
-margin-left:25px;
-font-weight:500;
-transition:0.3s;
-}
-
-nav a:hover{
-color:#00ffd5;
-}
+nav ul{list-style:none;display:flex;gap:25px;}
+nav a{text-decoration:none;color:#e2e8f0;transition:.3s;}
+nav a:hover{color:#38bdf8;}
 
 .hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
 text-align:center;
-padding:90px 20px;
+padding:0 10%;
 }
 
-.hero h1{
-font-size:44px;
-margin-bottom:15px;
+.hero h1{font-size:60px;font-family:'Orbitron',sans-serif;}
+.hero span{
+background:linear-gradient(90deg,#38bdf8,#6366f1);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
-
-.hero p{
-font-size:18px;
-opacity:0.9;
-margin-bottom:30px;
-}
+.hero p{margin-top:20px;font-size:20px;opacity:.9;}
 
 .btn{
-background:#00ffd5;
-color:black;
-padding:14px 30px;
-border-radius:30px;
+display:inline-block;
+padding:15px 35px;
+border-radius:40px;
+background:linear-gradient(90deg,#38bdf8,#6366f1);
+color:white;
 text-decoration:none;
 font-weight:600;
-transition:0.3s;
+transition:.4s;
+border:none;
+cursor:pointer;
 }
+.btn:hover{transform:scale(1.08);}
 
-.btn:hover{
-background:white;
-}
+section{padding:100px 10%;text-align:center;}
+section h2{font-size:40px;margin-bottom:20px;color:#38bdf8;}
 
-.section{
-padding:70px 30px;
-text-align:center;
-}
-
-.features{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:25px;
-margin-top:40px;
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+margin-top:50px;
 }
 
 .card{
-background:rgba(255,255,255,0.08);
-padding:25px;
-border-radius:15px;
-width:260px;
-backdrop-filter:blur(8px);
-transition:0.3s;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(20px);
+border-radius:20px;
+padding:35px;
+transition:.4s;
 }
-
 .card:hover{
-transform:translateY(-8px);
-background:rgba(255,255,255,0.15);
+transform:translateY(-10px);
+box-shadow:0 15px 40px rgba(0,0,0,.6);
 }
 
-.testimonials{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:25px;
-margin-top:40px;
-}
-
-.testimonial{
-background:white;
-color:black;
-padding:20px;
-border-radius:12px;
-width:260px;
+/* PREMIUM FORM */
+.cta{
+background:linear-gradient(135deg,#0ea5e9,#6366f1);
+padding:100px 10%;
+border-radius:40px;
+box-shadow:0 30px 60px rgba(0,0,0,0.5);
 }
 
 .contact-form{
-max-width:500px;
-margin:40px auto 0;
-background:rgba(255,255,255,0.08);
-padding:30px;
-border-radius:15px;
-backdrop-filter:blur(10px);
-box-shadow:0 8px 25px rgba(0,0,0,0.3);
+margin-top:50px;
+max-width:600px;
+margin-left:auto;
+margin-right:auto;
+padding:50px;
+border-radius:30px;
+background:white;
+box-shadow:0 25px 60px rgba(0,0,0,0.4);
+display:flex;
+flex-direction:column;
+gap:25px;
+animation:fadeSlide 0.8s ease;
 }
 
-.form-group{
-margin-bottom:18px;
-text-align:left;
+@keyframes fadeSlide{
+from{opacity:0; transform:translateY(30px);}
+to{opacity:1; transform:translateY(0);}
 }
 
-.form-group label{
-display:block;
-margin-bottom:6px;
-font-size:14px;
-opacity:0.9;
-}
+.input-group{position:relative;}
 
-.form-group input,
-.form-group select{
+.input-group input,
+.input-group textarea,
+.input-group select{
 width:100%;
-padding:10px;
-border-radius:8px;
-border:none;
+padding:18px 15px;
+border-radius:12px;
+border:1px solid #ccc;
+font-size:15px;
+background:white;
+color:black;
 outline:none;
-font-size:14px;
+transition:0.3s;
 }
 
-.form-group input:focus,
-.form-group select:focus{
-box-shadow:0 0 0 2px #00ffd5;
+.input-group label{
+position:absolute;
+left:15px;
+top:18px;
+color:#666;
+font-size:14px;
+pointer-events:none;
+transition:0.3s;
+background:white;
+padding:0 5px;
+}
+
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group select:focus{
+border-color:#38bdf8;
+box-shadow:0 0 12px rgba(56,189,248,0.4);
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label,
+.input-group textarea:focus + label,
+.input-group textarea:valid + label,
+.input-group select:focus + label,
+.input-group select:valid + label{
+top:-8px;
+font-size:12px;
+color:#0ea5e9;
 }
 
 .submit-btn{
-width:100%;
-padding:12px;
-border-radius:30px;
+padding:16px;
+border-radius:50px;
 border:none;
-background:#00ffd5;
-color:black;
 font-weight:600;
+font-size:16px;
 cursor:pointer;
+background:linear-gradient(90deg,#38bdf8,#6366f1);
+color:white;
 transition:0.3s;
 }
 
 .submit-btn:hover{
-background:white;
+transform:scale(1.05);
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
 }
 
 footer{
-background:#000;
-padding:30px;
+padding:40px;
 text-align:center;
-margin-top:60px;
-}
-
-footer a{
-color:#00ffd5;
-text-decoration:none;
+background:#020617;
+color:#94a3b8;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<div class="logo">AITheStud</div>
+<div id="particles-js"></div>
+
 <nav>
-<a href="#">Home</a>
-<a href="#features">Services</a>
-<a href="#reviews">Reviews</a>
-<a href="#contact">Contact</a>
+<h2>AITheStud</h2>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#vision">Vision</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
 </nav>
-</header>
 
-<section class="hero">
-<h1>Professional Business Documents — Delivered with Precision</h1>
-<p>We transform your rough drafts into polished, business-ready documents using advanced AI tools and expert review.</p>
-<a href="#contact" class="btn">Submit Your Requirement</a>
+<div class="hero">
+<div data-aos="fade-up">
+<h1><span>Intelligent</span> AI Automation</h1>
+<p>Transforming Businesses with Smart Digital Systems</p>
+<a href="#services" class="btn">Get Started</a>
+</div>
+</div>
+
+<section id="about">
+<h2 data-aos="fade-up">About AITheStud</h2>
+<p data-aos="fade-up" data-aos-delay="200">
+We deliver scalable AI solutions that automate workflows, documentation,
+analytics, and business systems — making automation simple and powerful.
+</p>
 </section>
 
-<section class="section" id="features">
-<h2>Our Services</h2>
-
-<div class="features">
-<div class="card">
-<h3>Grammar Correction</h3>
-<p>Advanced error detection and precise language improvement.</p>
-</div>
-
-<div class="card">
-<h3>Case & Formatting</h3>
-<p>Proper capitalization, structure refinement, and layout correction.</p>
-</div>
-
-<div class="card">
-<h3>Professional Writing</h3>
-<p>Business-ready emails, agreements, and official documentation.</p>
-</div>
-
-<div class="card">
-<h3>IT Company Agreements</h3>
-<p>Professional documentation aligned with industry standards.</p>
-</div>
+<section id="services">
+<h2 data-aos="fade-up">Our Services</h2>
+<div class="grid">
+<div class="card" data-aos="zoom-in"><h3>🤖 AI Automation</h3><p>Eliminate repetitive tasks and optimize processes.</p></div>
+<div class="card" data-aos="zoom-in" data-aos-delay="100"><h3>📄 Smart Documentation</h3><p>Automated SOPs, reports, and compliance systems.</p></div>
+<div class="card" data-aos="zoom-in" data-aos-delay="200"><h3>💬 AI Chatbots</h3><p>24/7 intelligent customer interaction systems.</p></div>
+<div class="card" data-aos="zoom-in" data-aos-delay="300"><h3>📊 AI Analytics</h3><p>Predictive dashboards and smart reporting tools.</p></div>
+<div class="card" data-aos="zoom-in" data-aos-delay="400"><h3>⚙️ Custom Integration</h3><p>Seamless CRM, ERP, and web application AI integration.</p></div>
+<div class="card" data-aos="zoom-in" data-aos-delay="500"><h3>🧠 AI Strategy</h3><p>Roadmap planning and automation consulting.</p></div>
 </div>
 </section>
 
-<section class="section" id="reviews">
-<h2>What Our Clients Say</h2>
-
-<div class="testimonials">
-<div class="testimonial">
-<p>"This service made our company documents look professional instantly."</p>
-<strong>- Ravi Kumar</strong>
-</div>
-
-<div class="testimonial">
-<p>"Very useful for agreements and official communication."</p>
-<strong>- Priya S</strong>
-</div>
-
-<div class="testimonial">
-<p>"Fast, accurate and saved us hours of editing work."</p>
-<strong>- Mahesh IT Solutions</strong>
-</div>
-</div>
+<section id="vision">
+<h2 data-aos="fade-up">Our Vision</h2>
+<p data-aos="fade-up" data-aos-delay="200">
+To become a trusted global leader in AI-powered business solutions —
+making intelligent automation accessible to every organization.
+</p>
 </section>
 
-<section class="section" id="contact">
-<h2>Submit Your Requirement</h2>
-<p>Fill the form and our team will contact you shortly.</p>
+<section id="contact">
+<div class="cta" data-aos="fade-up">
+<h2 style="font-weight:800; font-size:42px; color:white;">
+    Submit Your Document Request
+</h2>
 
-<div class="contact-form">
-<form name="contact" method="POST" data-netlify="true" action="/thankyou.html">
+<form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
 <input type="hidden" name="form-name" value="contact">
+<p style="display:none;"><label>Don’t fill this out: <input name="bot-field"></label></p>
 
-<div class="form-group">
-<label>Name</label>
+<div class="input-group">
 <input type="text" name="name" required>
+<label>Your Name</label>
 </div>
 
-<div class="form-group">
-<label>Company</label>
+<div class="input-group">
 <input type="text" name="company" required>
+<label>Company Name</label>
 </div>
 
-<div class="form-group">
-<label>Email</label>
+<div class="input-group">
 <input type="email" name="email" required>
+<label>Email Address</label>
 </div>
 
-<div class="form-group">
-<label>Mobile</label>
-<input type="tel" name="mobile" required>
+<div class="input-group">
+<input type="tel" name="contact" required>
+<label>Contact Number</label>
 </div>
 
-<div class="form-group">
-<label>City</label>
+<div class="input-group">
 <input type="text" name="city" required>
+<label>City</label>
 </div>
 
-<div class="form-group">
-<label>Type of Document</label>
+<div class="input-group">
 <select name="document_type" required>
-<option value="">Select Type</option>
-<option>Business Agreement</option>
-<option>IT Contract</option>
-<option>Email Draft</option>
-<option>Website Content</option>
-<option>Other</option>
+<option value="" disabled selected></option>
+<option>SOP Document</option>
+<option>Compliance Documentation</option>
+<option>Business Proposal</option>
+<option>Automation Workflow Plan</option>
+<option>AI Strategy Report</option>
+<option>Custom Document</option>
 </select>
+<label>Select Document Type</label>
 </div>
 
-<button type="submit" class="submit-btn">Submit Requirement</button>
+<div class="input-group">
+<textarea name="message" rows="4" required></textarea>
+<label>Additional Details</label>
+</div>
+
+<button type="submit" class="submit-btn">Submit Request</button>
 
 </form>
 </div>
 </section>
 
 <footer>
-<p>© 2026 AITheStud. All Rights Reserved.</p>
+© 2026 AITheStud | Premium AI Automation Solutions
 </footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init({ duration:1000, once:true });</script>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<script>
+particlesJS("particles-js", {
+particles:{number:{value:80},size:{value:3},color:{value:"#38bdf8"},
+line_linked:{enable:true,color:"#6366f1"},move:{speed:2}}
+});
+</script>
 
 </body>
 </html>
-
