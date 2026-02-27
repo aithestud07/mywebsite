@@ -198,6 +198,68 @@ text-align:center;
 background:#020617;
 color:#94a3b8;
 }
+
+/* INLINE AI SECTION */
+#ai-assistant{
+padding:100px 10%;
+text-align:center;
+}
+
+.ai-container{
+max-width:700px;
+margin:auto;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(20px);
+border-radius:25px;
+padding:40px;
+box-shadow:0 20px 60px rgba(0,0,0,0.5);
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.ai-messages{
+height:300px;
+overflow-y:auto;
+background:rgba(0,0,0,0.3);
+border-radius:15px;
+padding:20px;
+text-align:left;
+font-size:14px;
+}
+
+.ai-messages div{
+margin-bottom:10px;
+}
+
+.ai-input-area{
+display:flex;
+gap:10px;
+}
+
+.ai-input-area input{
+flex:1;
+padding:14px;
+border-radius:12px;
+border:none;
+outline:none;
+font-size:14px;
+}
+
+.ai-input-area button{
+padding:14px 20px;
+border-radius:12px;
+border:none;
+background:linear-gradient(90deg,#38bdf8,#6366f1);
+color:white;
+cursor:pointer;
+font-weight:600;
+transition:0.3s;
+}
+
+.ai-input-area button:hover{
+transform:scale(1.05);
+}
 </style>
 </head>
 
@@ -251,13 +313,31 @@ making intelligent automation accessible to every organization.
 </p>
 </section>
 
+<!-- AI ASSISTANT SECTION -->
+<section id="ai-assistant">
+<h2 data-aos="fade-up">AI Live Assistant</h2>
+
+<div class="ai-container" data-aos="fade-up" data-aos-delay="200">
+
+<div class="ai-messages" id="inlineChatMessages">
+<div><b>AI:</b> Hello 👋 Ask me anything about our AI services.</div>
+</div>
+
+<div class="ai-input-area">
+<input type="text" id="inlineChatInput" placeholder="Type your message..." />
+<button onclick="sendInlineMessage()">Send</button>
+</div>
+
+</div>
+</section>
+
 <section id="contact">
 <div class="cta" data-aos="fade-up">
 <h2 style="font-weight:800; font-size:42px; color:white;">
     Submit Your Document Request
 </h2>
 
-<form name="contact" method="POST" data-netlify="true" action="/thankyou.html" netlify-honeypot="bot-field" class="contact-form">
+<form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
 <input type="hidden" name="form-name" value="contact">
 <p style="display:none;"><label>Don’t fill this out: <input name="bot-field"></label></p>
 
@@ -325,6 +405,61 @@ line_linked:{enable:true,color:"#6366f1"},move:{speed:2}}
 });
 </script>
 
+<script>
+function sendInlineMessage(){
+const input = document.getElementById("inlineChatInput");
+const messages = document.getElementById("inlineChatMessages");
+
+if(input.value.trim()==="") return;
+
+messages.innerHTML += `<div><b>You:</b> ${input.value}</div>`;
+
+setTimeout(()=>{
+messages.innerHTML += `<div><b>AI:</b> Thank you! Our AI automation team will assist you shortly.</div>`;
+messages.scrollTop = messages.scrollHeight;
+},800);
+
+input.value="";
+}
+</script>
+<script>
+async function sendInlineMessage(){
+const input = document.getElementById("inlineChatInput");
+const messages = document.getElementById("inlineChatMessages");
+
+if(input.value.trim()==="") return;
+
+const userMessage = input.value;
+
+messages.innerHTML += `<div><b>You:</b> ${userMessage}</div>`;
+messages.scrollTop = messages.scrollHeight;
+
+input.value="";
+
+messages.innerHTML += `<div id="typing"><b>AI:</b> Typing...</div>`;
+messages.scrollTop = messages.scrollHeight;
+
+try{
+const response = await fetch("/.netlify/functions/correct",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body: JSON.stringify({ text: userMessage })
+});
+
+const data = await response.json();
+
+document.getElementById("typing").remove();
+
+messages.innerHTML += `<div><b>AI:</b> ${data.reply}</div>`;
+messages.scrollTop = messages.scrollHeight;
+
+}catch(error){
+document.getElementById("typing").remove();
+messages.innerHTML += `<div><b>AI:</b> ⚠️ Error connecting to AI server.</div>`;
+}
+}
+</script>
 </body>
 </html>
-
